@@ -5,9 +5,10 @@ import { connect } from "react-redux";
 import { ApplicationState } from "../../store";
 import { Cart } from "../../store/cart/types";
 const CartContainer = styled.div`
-  height: 100%;
-  width: 100%;
+  /* height: 100%;
+  width: 100%; */
   padding: 30px;
+  flex: 2;
 `;
 const CartHeader = styled.h2``;
 const CartHeaderDiv = styled.div`
@@ -19,13 +20,17 @@ const CartListsDiv = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
+  flex-direction: column;
 `;
 
 const CartListItemDiv = styled.div`
   display: flex;
 `;
 
-const CartListItemImage = styled.img``;
+const CartListItemImage = styled.img`
+  width: 100px;
+  height: 100px;
+`;
 
 const CartListItemName = styled.p``;
 
@@ -38,6 +43,7 @@ interface propsFromState {
 type AllProps = propsFromState;
 
 const CartComponent: React.FC<AllProps> = ({ cartItems }) => {
+  console.log("cartItems", cartItems);
   return (
     <CartContainer>
       <CartHeaderDiv>

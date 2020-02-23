@@ -10,9 +10,13 @@ const ProductContainer = styled.div`
   padding: 10px;
   margin: 10px;
   cursor: pointer;
+  flex: 0 0 25%;
 `;
 
-const ProductImage = styled.img``;
+const ProductImage = styled.img`
+  width: 100px;
+  height: 100px;
+`;
 
 const ProductHeader = styled.h1``;
 
@@ -44,7 +48,7 @@ const ProductItem: React.FC<Props> = ({ item, addToCart }) => {
       <ProductImage src={item.image} />
       <ProductHeader>{item.name}</ProductHeader>
       <ProductBrandText>{item.brand}</ProductBrandText>
-      <AddToCart onClick={item => AddItemToCart(item)}>Add To Cart</AddToCart>
+      <AddToCart onClick={() => AddItemToCart(item)}>Add To Cart</AddToCart>
     </ProductContainer>
   );
 };
