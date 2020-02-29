@@ -28,7 +28,14 @@ const ProductImage = styled.img`
   object-position: center;
 `;
 
-const ProductHeader = styled.h1``;
+const ProductHeader = styled.h1`
+  height: 76px;
+`;
+
+const ProductDescriptionDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
 const ProductBrandText = styled.text``;
 
@@ -36,6 +43,7 @@ const AddToCart = styled.button`
   padding: 10px;
   background-color: blue;
   color: #ffffff;
+  border-radius: 10px;
 `;
 
 interface propsFromComponent {
@@ -59,8 +67,10 @@ const ProductItem: React.FC<Props> = ({ item, addToCart }) => {
         <ProductImage src={item.image} />
       </ProductFigure>
       <ProductHeader>{item.name}</ProductHeader>
-      <ProductBrandText>{item.brand}</ProductBrandText>
-      <AddToCart onClick={() => AddItemToCart(item)}>Add To Cart</AddToCart>
+      <ProductDescriptionDiv>
+        <ProductBrandText>{item.brand}</ProductBrandText>
+        <AddToCart onClick={() => AddItemToCart(item)}>Add To Cart</AddToCart>
+      </ProductDescriptionDiv>
     </ProductContainer>
   );
 };
