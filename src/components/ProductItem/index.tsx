@@ -8,14 +8,24 @@ const ProductContainer = styled.div`
   background-color: #eeeeee;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 10px;
-  margin: 10px;
+  margin: 15px;
   cursor: pointer;
   flex: 0 0 25%;
 `;
 
-const ProductImage = styled.img`
-  width: 100px;
+const ProductFigure = styled.figure`
+  width: 230px;
   height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ProductImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 `;
 
 const ProductHeader = styled.h1``;
@@ -45,7 +55,9 @@ const ProductItem: React.FC<Props> = ({ item, addToCart }) => {
 
   return (
     <ProductContainer>
-      <ProductImage src={item.image} />
+      <ProductFigure>
+        <ProductImage src={item.image} />
+      </ProductFigure>
       <ProductHeader>{item.name}</ProductHeader>
       <ProductBrandText>{item.brand}</ProductBrandText>
       <AddToCart onClick={() => AddItemToCart(item)}>Add To Cart</AddToCart>

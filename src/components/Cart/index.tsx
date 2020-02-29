@@ -8,7 +8,6 @@ const CartContainer = styled.div`
   /* height: 100%;
   width: 100%; */
   padding: 30px;
-  flex: 2;
 `;
 const CartHeader = styled.h2``;
 const CartHeaderDiv = styled.div`
@@ -19,12 +18,12 @@ const CartHeaderDiv = styled.div`
 const CartListsDiv = styled.div`
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
 `;
 
 const CartListItemDiv = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const CartListItemImage = styled.img`

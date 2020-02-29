@@ -8,14 +8,14 @@ import { Inventory } from "../../store/inventory/types";
 import { fetchRequest } from "../../store/inventory/action";
 
 const Container = styled.div`
-  width: 90%;
+  width: 100%;
+  max-width: 1170px;
   margin: auto;
 `;
 
 const ProductListItems = styled.div`
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
 `;
 
 interface PropsFromState {
