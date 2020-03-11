@@ -1,4 +1,3 @@
-import { action } from "typesafe-actions";
 import { InventoryActionTypes, Inventory, InventoryState } from "./types";
 
 import { ActionCreator, Action, Dispatch } from "redux";

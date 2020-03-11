@@ -1,5 +1,3 @@
-import { action } from "typesafe-actions";
-
 import { CartActionTypes, Cart, cartState } from "./types";
 import { Inventory } from "../inventory/types";
 
