@@ -1,5 +1,4 @@
 import { combineReducers } from "redux";
-import { all, fork } from "redux-saga/effects";
 import { connectRouter } from "connected-react-router";
 
 import { History } from "history";
