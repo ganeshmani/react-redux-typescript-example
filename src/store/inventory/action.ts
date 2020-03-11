@@ -1,4 +1,4 @@
-import { InventoryActionTypes, Inventory, InventoryState } from "./types";
+import { InventoryActionTypes } from "./types";
 
 import { ActionCreator, Action, Dispatch } from "redux";
 import { ThunkAction } from "redux-thunk";
