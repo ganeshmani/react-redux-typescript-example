@@ -1,10 +1,27 @@
 import { action } from "typesafe-actions";
 import { InventoryActionTypes, Inventory, InventoryState } from "./types";
 
-export const fetchRequest = () => action(InventoryActionTypes.FETCH_REQUEST);
+import { ActionCreator, Action, Dispatch } from "redux";
+import { ThunkAction } from "redux-thunk";
 
-export const fetchSuccess = (data: Inventory[]) =>
-  action(InventoryActionTypes.FETCH_SUCCESS, data);
+import { ApplicationState } from "../index";
+import inventory from "../../mockdata";
 
-export const fetchError = (message: string) =>
-  action(InventoryActionTypes.FETCH_ERROR, message);
+export type AppThunk = ActionCreator<
+  ThunkAction<void, ApplicationState, null, Action<string>>
+>;
+
+export const fetchRequest: AppThunk = () => {
+  return (dispatch: Dispatch): Action => {
+    try {
+      return dispatch({
+        type: InventoryActionTypes.FETCH_SUCCESS,
+        payload: inventory
+      });
+    } catch (e) {
+      return dispatch({
+        type: InventoryActionTypes.FETCH_ERROR
+      });
+    }
+  };
+};

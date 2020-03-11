@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import { Inventory } from "../../store/inventory/types";
 import { addToCart } from "../../store/cart/action";
-
+import { ThunkDispatch } from "redux-thunk";
+import { AnyAction } from "redux";
 const ProductContainer = styled.div`
   background-color: #eeeeee;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -51,7 +52,7 @@ interface propsFromComponent {
 }
 
 interface propsFromDispatch {
-  addToCart: typeof addToCart;
+  addToCart: (item: any) => any;
 }
 
 type Props = propsFromComponent & propsFromDispatch;
@@ -77,8 +78,10 @@ const ProductItem: React.FC<Props> = ({ item, addToCart }) => {
 
 const mapStateToProps = () => {};
 
-const mapDispatchToProps = {
-  addToCart
+const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AnyAction>) => {
+  return {
+    addToCart: (item: any) => dispatch(addToCart(item))
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductItem);

@@ -4,11 +4,11 @@ import { connectRouter } from "connected-react-router";
 
 import { History } from "history";
 
-import inventorySaga from "./inventory/sagas";
+// import inventorySaga from "./inventory/sagas";
 import { InventoryReducer } from "./inventory/reducer";
 import { InventoryState } from "./inventory/types";
 
-import cartSaga from "./cart/sagas";
+// import cartSaga from "./cart/sagas";
 import { cartReducer } from "./cart/reducer";
 import { cartState } from "./cart/types";
 import { RouterState } from "connected-react-router";
@@ -25,6 +25,3 @@ export const createRootReducer = (history: History) =>
     inventory: InventoryReducer,
     router: connectRouter(history)
   });
-export function* rootSaga() {
-  yield all([fork(cartSaga), fork(inventorySaga)]);
-}

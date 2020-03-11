@@ -6,6 +6,8 @@ import ProductItem from "../ProductItem";
 import { ApplicationState } from "../../store";
 import { Inventory } from "../../store/inventory/types";
 import { fetchRequest } from "../../store/inventory/action";
+import { ThunkDispatch } from "redux-thunk";
+import { AnyAction } from "redux";
 
 const Container = styled.div`
   width: 100%;
@@ -25,7 +27,7 @@ interface PropsFromState {
 }
 
 interface propsFromDispatch {
-  fetchRequest: typeof fetchRequest;
+  fetchRequest: () => any;
 }
 
 type AllProps = PropsFromState & propsFromDispatch;
@@ -58,8 +60,12 @@ const mapStateToProps = ({ inventory }: ApplicationState) => ({
   data: inventory.data
 });
 
-const mapDispatchToProps = {
-  fetchRequest
+const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AnyAction>) => {
+  return {
+    fetchRequest: () => {
+      dispatch(fetchRequest());
+    }
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
